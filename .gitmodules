@@ -1,0 +1,3 @@
+[submodule "discuss"]
+	path = discuss
+	url = https://github.com/adrielradicchi/discuss.git
