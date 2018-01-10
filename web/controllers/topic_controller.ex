@@ -8,7 +8,7 @@ defmodule Discuss.TopicController do
         render conn, "index.html", topics: topics
     end
 
-    def new(conn, params) do
+    def new(conn, _params) do
         changeset = Topic.changeset(%Topic{}, %{})
         render conn, "new.html", changeset: changeset
     end
@@ -16,7 +16,10 @@ defmodule Discuss.TopicController do
     def create(conn, %{"topic" => topic}) do
         changeset = Topic.changeset(%Topic{}, topic)
         case Repo.insert(changeset) do
-            {:ok, post} -> IO.inspect(post)
+            {:ok, post} -> 
+                conn
+                |> put_flash(:info, "Topic Created")
+                |> redirect(to: topic_path(conn, :index))
             {:error, changeset} ->
                 render conn, "new.html", changeset: changeset
         end
