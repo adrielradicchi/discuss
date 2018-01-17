@@ -3,10 +3,10 @@
     color: red;
     text-transform: capitalize;
     position: absolute;
-    top: 122px;
+    top: 125px;
 }
 
 .form-group {
     position: relative;
-    margin-bottom: 25px;
+    margin-bottom: 100px;
 }
