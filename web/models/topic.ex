@@ -2,12 +2,12 @@ defmodule Discuss.Topic do
     use Discuss.Web, :model
 
     schema "topics" do
-        field :tittle, :string
+        field :title, :string
     end
 
     def changeset(struct, params \\ %{}) do
         struct 
-        |> cast(params, [:tittle])
-        |> validate_required([:tittle])
+        |> cast(params, [:title])
+        |> validate_required([:title])
     end
 end
