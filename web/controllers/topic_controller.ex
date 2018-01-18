@@ -45,7 +45,7 @@ defmodule Discuss.TopicController do
                 render conn, "edit.html", changeset: changeset, topic: old_topic
         end
      end
-
+     
     def delete(conn, %{"id" => topic_id})  do
         Repo.get!(Topic, topic_id) |> Repo.delete!
         
