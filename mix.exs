@@ -19,7 +19,7 @@ defmodule Discuss.Mixfile do
   def application do
     [mod: {Discuss, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :logger, :ueberauth]]
+                    :phoenix_ecto, :postgrex, :ueberauth, :ueberauth_github]]
   end
 
   # Specifies which paths to compile per environment.
@@ -30,7 +30,8 @@ defmodule Discuss.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:ueberauth, "~> 0.3"},
+    [{:ueberauth_github, "~> 0.4"},
+     {:ueberauth, "~> 0.3"},
      {:phoenix, "~> 1.2.5"},
      {:phoenix_pubsub, "~> 1.0"},
      {:phoenix_ecto, "~> 3.0"},
