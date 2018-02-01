@@ -2,6 +2,8 @@ defmodule Discuss.TopicController do
     use Discuss.Web, :controller
 
     alias Discuss.Topic
+    
+    plug Discuss.Plugs.RequireAuth when action in [:new, :create, :edit, :update, :delete]
 
     def index(conn, _params) do
         topics = Repo.all(Topic)
@@ -45,7 +47,7 @@ defmodule Discuss.TopicController do
                 render conn, "edit.html", changeset: changeset, topic: old_topic
         end
      end
-
+     
     def delete(conn, %{"id" => topic_id})  do
         Repo.get!(Topic, topic_id) |> Repo.delete!
         
